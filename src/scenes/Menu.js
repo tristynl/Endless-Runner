@@ -3,9 +3,16 @@ class Menu extends Phaser.Scene {
         super("menuScene");
     }
 
+    startButton;
+    preload(){
+        this.load.image('menuBackdrop', './assets/title.jpeg');
+    }
     create(){
+
+        this.add.image(0,0, 'menuBackdrop').setOrigin(0,0);
+
         let menuConfig = {
-            fontFamily: 'Courier',
+            fontFamily: 'Georgia',
             fontSize: '28px',
             color: '#fcd9ff', //#843605
             align: 'center',
@@ -14,10 +21,9 @@ class Menu extends Phaser.Scene {
                 bottom: 5,
             },
             fixedWidth: 0
-        }
+        }  
 
-        
+        const button = new Button(750, 300, 'Play Game', this, () => this.scene.start("tutorialScene"));
 
-        this.add.text(game.config.width/2, game.config.height/2 - borderUISize - borderPadding, 'Hi', menuConfig).setOrigin(0.5);
     }
 }
