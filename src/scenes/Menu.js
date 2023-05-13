@@ -5,7 +5,7 @@ class Menu extends Phaser.Scene {
 
     startButton;
     preload(){
-        this.load.image('menuBackdrop', './assets/title.jpeg');
+        this.load.image('menuBackdrop', './assets/titlepage.png');
     }
     create(){
 
@@ -23,7 +23,8 @@ class Menu extends Phaser.Scene {
             fixedWidth: 0
         }  
 
-        const button = new Button(750, 300, 'Play Game', this, () => this.scene.start("tutorialScene"));
+        const startButton = new Button(330, 350, 'Play Game', this, () => this.scene.start("contextScene"));
+        const creditButton = new Button(330, 400, 'Credit Page', this, () => this.scene.start("tutorialScene"));
 
     }
 }
