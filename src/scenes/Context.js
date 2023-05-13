@@ -23,7 +23,7 @@ class Context extends Phaser.Scene {
             fixedWidth: 0
         }  
 
-        const startButton = new Button(330, 440, 'Continue', this, () => this.scene.start("tutorialScene"));
+        const startButton = new Button(330, 440, 'Continue', this, () => this.scene.start("playScene"));
 
     }
 }

@@ -6,6 +6,9 @@ class Menu extends Phaser.Scene {
     startButton;
     preload(){
         this.load.image('menuBackdrop', './assets/titlepage.png');
+        //For background music
+        this.load.audio('music', './assets/backgroundMusic.mp3');
+
     }
     create(){
 
