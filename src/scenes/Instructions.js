@@ -1,15 +1,15 @@
-class Context extends Phaser.Scene {
+class Instructions extends Phaser.Scene {
     constructor(){
-        super("contextScene");
+        super("instructScene");
     }
 
     startButton;
     preload(){
-        this.load.image('contextPic', './assets/context.png');
+        this.load.image('in', './assets/instruct.png');
     }
     create(){
 
-        this.add.image(0,0, 'contextPic').setOrigin(0,0);
+        this.add.image(0,0, 'in').setOrigin(0,0);
 
         let menuConfig = {
             fontFamily: 'Georgia',
@@ -23,7 +23,7 @@ class Context extends Phaser.Scene {
             fixedWidth: 0
         }  
 
-        const startButton = new Button(330, 440, 'Continue', this, () => this.scene.start("instructScene"));
+        const startButton = new Button(330, 440, 'Continue', this, () => this.scene.start("playScene"));
 
     }
 }

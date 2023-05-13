@@ -5,7 +5,8 @@ class Play extends Phaser.Scene {
 
     preload() {
         //Load images/tile sprites
-        //this.load.image('cup', './assets/cup.png');
+        this.load.image('hw', './assets/homework.png');
+        this.load.image('t', './assets/tv.png');
         
         //Load spritesheet
         //this.load.spritesheet('explosion', './assets/enemysprite.png', {frameWidth: 32, frameHeight: 32, startFrame: 0, endFrame: 9});
@@ -14,6 +15,7 @@ class Play extends Phaser.Scene {
 
     create() {
         //Place tile sprite
+        //this.add.image(400,400, 't').setOrigin(0,0);
         //this.starfield = this.add.tileSprite(0, 0, 640, 480, 'background').setOrigin(0, 0);
 
         //Green UI background
