@@ -3,29 +3,34 @@ class Play extends Phaser.Scene {
         super("playScene");
     }
 
+    //let character;
     preload() {
         //Load images/tile sprites
+        this.load.image('bg', './assets/backPlay.png');
+
+
+        //Items
         this.load.image('hw', './assets/homework.png');
         this.load.image('t', './assets/tv.png');
+
         
         //Load spritesheet
+        this.load.spritesheet('character', './assets/character.png', {frameWidth: 100, frameHeight: 100, startFrame: 0, endFrame: 3});
         //this.load.spritesheet('explosion', './assets/enemysprite.png', {frameWidth: 32, frameHeight: 32, startFrame: 0, endFrame: 9});
 
     }
 
     create() {
         //Place tile sprite
-        //this.add.image(400,400, 't').setOrigin(0,0);
+                this.bg = this.add.tileSprite(0, 0, 960, 540, 'bg').setOrigin(0, 0);
+
+       // this.bg = this.add.tileSprite(0, 0, 690, 540, 'b').setOrigin(0, 0);
         //this.starfield = this.add.tileSprite(0, 0, 640, 480, 'background').setOrigin(0, 0);
 
+      
         //Green UI background
-        this.add.rectangle(0, borderUISize + borderPadding, game.config.width, borderUISize * 2, 0x00FF00).setOrigin(0, 0);
-        //White borders
-        this.add.rectangle(0, 0, game.config.width, borderUISize, 0xFFFFFF).setOrigin(0 ,0);
-        this.add.rectangle(0, game.config.height - borderUISize, game.config.width, borderUISize, 0xFFFFFF).setOrigin(0 ,0);
-        this.add.rectangle(0, 0, borderUISize, game.config.height, 0xFFFFFF).setOrigin(0 ,0);
-        this.add.rectangle(game.config.width - borderUISize, 0, borderUISize, game.config.height, 0xFFFFFF).setOrigin(0 ,0);
-
+        //this.add.rectangle(0, borderUISize + borderPadding, game.config.width, borderUISize * 2, 0x00FF00).setOrigin(0, 0);
+        
         //Add music
         this.sound.add('music', {loop: false, volume : 0.1}).play();
 
@@ -44,14 +49,24 @@ class Play extends Phaser.Scene {
 
         //Animation config
         this.anims.create({
-            key: 'explode',
-            frames: this.anims.generateFrameNumbers('explosion', { 
+            key: 'walk',
+            frames: this.anims.generateFrameNumbers('character', { 
                 start: 0, 
-                end: 9, 
+                end: 4, 
                 first: 0
             }),
-            frameRate: 30
+            frameRate: 30,
+            repeat: -1
+            //frameRate: 4,
+            //frames: this.anims.generateFrameNumbers("character", {start: 0, end: 3}),
+            //repeat: -1    
         });
+
+          //Creates Character
+            let character = this.add.sprite(100, 325, 'character').setOrigin(0,0);
+            character.anims.play('walk');
+            
+       
 
         
         this.p1Score = 0;
@@ -77,6 +92,12 @@ class Play extends Phaser.Scene {
     }
 
     update() {
+        this.bg.tilePositionX += 3;
+
+        /*if(Phaser.Input.Keyboard.JustDown(keyUP)) {
+            this.character.get('walk').pause();            //this.character.y = 200 ;
+        }*/
+
        /*
         //Check key input for restart / menu
         if(this.gameOver && Phaser.Input.Keyboard.JustDown(keyR)) {
