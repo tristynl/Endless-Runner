@@ -27,7 +27,7 @@ class Menu extends Phaser.Scene {
         }  
 
         const startButton = new Button(330, 350, 'Play Game', this, () => this.scene.start("contextScene"));
-        const creditButton = new Button(330, 400, 'Credit Page', this, () => this.scene.start("tutorialScene"));
+        const creditButton = new Button(330, 400, 'Credit Page', this, () => this.scene.start("creditScene"));
 
     }
 }
